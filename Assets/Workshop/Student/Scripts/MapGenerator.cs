@@ -30,7 +30,17 @@ namespace Workshop.Student
             // 2. create obstacles
 
             // 3. create floor
-
+            //int x = 1;
+            for (int y = 0; y < 10; y++)
+            {
+                for (int x = 0; x < 10; x++)
+                {
+                    GameObject floor = Instantiate(floorTiles[0],
+                        new Vector2(x, y),
+                        Quaternion.identity);
+                    floor.name = $"{x}-{y}";
+                }
+            }
             // 4. create walls
 
             // 5. random foods
