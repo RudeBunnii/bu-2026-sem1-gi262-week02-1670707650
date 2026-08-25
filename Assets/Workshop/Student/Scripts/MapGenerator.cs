@@ -35,13 +35,28 @@ namespace Workshop.Student
             {
                 for (int x = 0; x < 10; x++)
                 {
-                    GameObject floor = Instantiate(floorTiles[0],
+                    int r = UnityEngine.Random.Range(0, floorTiles.Length);
+                    GameObject floor = Instantiate(floorTiles[r],
                         new Vector2(x, y),
                         Quaternion.identity);
                     floor.name = $"{x}-{y}";
                 }
             }
             // 4. create walls
+            for (int y = -1; y < rows+1; y++)
+            {
+                for (int x = -1; x < columns+1; x++)
+                {
+                    if (x == -1 || x == columns || y == -1 || y == rows)
+                    {
+                        int r = UnityEngine.Random.Range(0, wallTiles.Length);
+                        GameObject floor = Instantiate(wallTiles[r],
+                            new Vector2(x, y),
+                            Quaternion.identity);
+                        floor.name = $"{x}-{y}";
+                    }
+                }
+            }
 
             // 5. random foods
 
